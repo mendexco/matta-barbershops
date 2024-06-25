@@ -1,0 +1,24 @@
+# https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: '*.{js,ts,jsx,tsx}'
+      run: bun -b lint
+    types:
+      glob: '*.{js,ts, jsx, tsx}'
+      run: bun -b typecheck
+pre-push:
+  parallel: true
+  commands:
+    lint:
+      glob: '*.{js,ts,jsx,tsx}'
+      run: bun -b lint
+    types:
+      glob: '*.{js,ts, jsx, tsx}'
+      run: bun -b typecheck
+commit-msg:
+  parallel: true
+  scripts:
+    'commitlint.sh':
+      runner: bash
